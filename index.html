@@ -663,8 +663,18 @@ footer{ background:#1A2118; color:var(--ivory); }
 @media (max-width:620px){
   body{ font-size:16px; }
   .btn{ padding:15px 24px; font-size:14px; }
+  /* Os três factos não cabem numa linha no telemóvel: o terceiro quebrava
+     sozinho e levava com ele a régua vertical, que ficava a flutuar à
+     esquerda de "Alcobaça". Passa a grelha: dois em cima, Alcobaça em baixo
+     a ocupar a largura toda e separada por uma régua horizontal. */
+  .hero-facts{ display:grid; grid-template-columns:1fr 1fr; row-gap:18px; }
   .hero-facts li{ padding-right:16px; }
   .hero-facts li + li{ padding-left:16px; }
+  .hero-facts li:nth-child(3){
+    grid-column:1 / -1;
+    padding-left:0; padding-top:18px;
+    border-left:0; border-top:1px solid var(--sage-pale);
+  }
   .hero-names{ font-size:10px; letter-spacing:.12em; }
 
   /* O mostrador deixa de ser radial e passa a lista, mais legível */
