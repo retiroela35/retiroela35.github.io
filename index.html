@@ -639,7 +639,10 @@ footer{ background:#1A2118; color:var(--ivory); }
 @media (max-width:1020px){
   .hero-in{ grid-template-columns:1fr; gap:8px; }
   .hero-copy{ padding-bottom:0; }
-  .hero-figure{ max-width:540px; margin-inline:auto; }
+  /* Em duas colunas a fotografia sangra 142% para fora da coluna. Em coluna
+     única esse excesso deixa de ter para onde ir e cortava a Alessandra
+     contra o limite do ecrã: aqui volta a caber no contentor. */
+  .hero-figure{ width:100%; max-width:540px; margin-inline:auto; }
   .hero-rings{ display:none; }   /* em coluna única passava por cima da copy */
   .live-in{ grid-template-columns:1fr; gap:36px; }
   .live-aside{ position:static; }
