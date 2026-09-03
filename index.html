@@ -1098,15 +1098,35 @@ footer{ background:#1A2118; color:var(--ivory); }
 
   /* ======================================================================
      ÚNICO SÍTIO A EDITAR: número de WhatsApp e mensagem pré-escrita.
-     Formato: indicativo do país + número, só dígitos.
-     ====================================================================== */
-  var WHATSAPP = '351935549884';
-  var MENSAGEM = 'Olá! Vi a página do Retiro ELA 35+ (17 e 18 de outubro, Alcobaça) e queria saber mais.';
 
-  var href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(MENSAGEM);
-  Array.prototype.forEach.call(document.querySelectorAll('[data-wa]'), function(a){
-    a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
-  });
+     O número vai codificado em base64 e só é montado depois da primeira
+     interação real do visitante (rato, toque ou teclado). Assim não existe
+     em lado nenhum do HTML servido e os raspadores de telefones — que só
+     leem o ficheiro — não o apanham.
+
+     Para trocar o número: correr btoa('351XXXXXXXXX') na consola do
+     browser e colar o resultado em WA_ENC.
+     ====================================================================== */
+  var WA_ENC   = 'MzUxOTM1NTQ5ODg0';
+  var MENSAGEM = 'Olá! Vi a página do Retiro ELA 35+, nos dias 17 e 18 de outubro, em Alcobaça, e gostava de saber mais informações.';
+
+  var links  = Array.prototype.slice.call(document.querySelectorAll('[data-wa]'));
+  var eventos = ['pointerdown', 'touchstart', 'mousemove', 'keydown', 'scroll'];
+  var armado = false;
+
+  function armar(){
+    if (armado) return;
+    armado = true;
+    var href = 'https://wa.me/' + atob(WA_ENC) + '?text=' + encodeURIComponent(MENSAGEM);
+    links.forEach(function(a){
+      a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    });
+    eventos.forEach(function(ev){ window.removeEventListener(ev, armar, true); });
+  }
+
+  eventos.forEach(function(ev){ window.addEventListener(ev, armar, true); });
+  /* rede de segurança: se o clique chegar antes, monta o link a tempo */
+  links.forEach(function(a){ a.addEventListener('click', armar, true); });
 
   /* Cabeçalho ganha corpo depois do topo */
   var head = document.getElementById('head');
