@@ -597,7 +597,7 @@ footer{ background:#1A2118; color:var(--ivory); }
   color:var(--iv-60); text-align:right;
 }
 .foot-sub{
-  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  display:flex; justify-content:flex-end; gap:16px; flex-wrap:wrap;
   padding-block:18px 34px; font-size:13.5px; color:rgba(245,242,235,.45);
 }
 /* assinatura de quem construiu — a linha mais discreta da página */
@@ -697,7 +697,7 @@ footer{ background:#1A2118; color:var(--ivory); }
   .host-fig .frame{ aspect-ratio:1/1.15; }
   .close-ring{ display:none; }   /* em ecrã estreito passaria por cima do texto */
   .foot-meta{ text-align:left; }
-  .foot-credit{ text-align:left; }
+  .foot-sub{ justify-content:flex-start; }
   .foot-in{ flex-direction:column; align-items:flex-start; }
 }
 
@@ -1100,7 +1100,6 @@ footer{ background:#1A2118; color:var(--ivory); }
     </div>
   </div>
   <div class="wrap foot-sub">
-    <span>Uma criação de Mafalda Almeida e Alessandra Losacco</span>
     <span class="foot-credit">Desenvolvido por <a href="https://www.instagram.com/ogrupocado/" target="_blank" rel="noopener noreferrer">Grupo CADO</a></span>
   </div>
 </footer>
