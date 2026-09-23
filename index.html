@@ -598,23 +598,16 @@ footer{ background:#1A2118; color:var(--ivory); }
 }
 .foot-sub{
   display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  padding-block:18px 16px; font-size:13.5px; color:rgba(245,242,235,.45);
+  padding-block:18px 34px; font-size:13.5px; color:rgba(245,242,235,.45);
 }
 /* assinatura de quem construiu — a linha mais discreta da página */
-.foot-credit{
-  padding-bottom:32px; text-align:right;
-  font:400 12.5px/1.6 var(--sans); color:rgba(245,242,235,.34);
-}
+.foot-credit{ color:rgba(245,242,235,.34); }
 .foot-credit a{
   color:rgba(245,242,235,.6); text-decoration:none;
   border-bottom:1px solid rgba(243,190,60,.45);
   transition:color .2s var(--ease), border-color .2s var(--ease);
 }
 .foot-credit a:hover,.foot-credit a:focus-visible{ color:var(--gold); border-bottom-color:var(--gold); }
-.todo{
-  background:rgba(243,190,60,.16); border-left:2px solid var(--gold);
-  padding:2px 7px; font-family:var(--sans); font-size:.86em; color:var(--gold);
-}
 
 /* ---------- CTA fixo (telemóvel) ---------- */
 .sticky{
@@ -664,6 +657,9 @@ footer{ background:#1A2118; color:var(--ivory); }
 
 @media (max-width:860px){
   .sticky{ display:block; }
+  /* o CTA fixo flutua por cima do fim da página e tapava a assinatura do
+     rodapé: reservar aqui a altura dele devolve o fim da página ao leitor */
+  footer{ padding-bottom:calc(84px + env(safe-area-inset-bottom)); }
   .head-when{ display:none; }
   .head-in{ grid-template-columns:1fr auto; }
   .shift-close{ flex-direction:column; gap:28px; }
@@ -1105,10 +1101,7 @@ footer{ background:#1A2118; color:var(--ivory); }
   </div>
   <div class="wrap foot-sub">
     <span>Uma criação de Mafalda Almeida e Alessandra Losacco</span>
-    <span><span class="todo">Termos · Privacidade · Contacto</span></span>
-  </div>
-  <div class="wrap foot-credit">
-    Desenvolvido por <a href="https://www.instagram.com/ogrupocado/" target="_blank" rel="noopener noreferrer">Grupo CADO</a>
+    <span class="foot-credit">Desenvolvido por <a href="https://www.instagram.com/ogrupocado/" target="_blank" rel="noopener noreferrer">Grupo CADO</a></span>
   </div>
 </footer>
 
