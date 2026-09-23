@@ -598,8 +598,19 @@ footer{ background:#1A2118; color:var(--ivory); }
 }
 .foot-sub{
   display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  padding-block:18px 34px; font-size:13.5px; color:rgba(245,242,235,.45);
+  padding-block:18px 16px; font-size:13.5px; color:rgba(245,242,235,.45);
 }
+/* assinatura de quem construiu — a linha mais discreta da página */
+.foot-credit{
+  padding-bottom:32px; text-align:right;
+  font:400 12.5px/1.6 var(--sans); color:rgba(245,242,235,.34);
+}
+.foot-credit a{
+  color:rgba(245,242,235,.6); text-decoration:none;
+  border-bottom:1px solid rgba(243,190,60,.45);
+  transition:color .2s var(--ease), border-color .2s var(--ease);
+}
+.foot-credit a:hover,.foot-credit a:focus-visible{ color:var(--gold); border-bottom-color:var(--gold); }
 .todo{
   background:rgba(243,190,60,.16); border-left:2px solid var(--gold);
   padding:2px 7px; font-family:var(--sans); font-size:.86em; color:var(--gold);
@@ -690,6 +701,7 @@ footer{ background:#1A2118; color:var(--ivory); }
   .host-fig .frame{ aspect-ratio:1/1.15; }
   .close-ring{ display:none; }   /* em ecrã estreito passaria por cima do texto */
   .foot-meta{ text-align:left; }
+  .foot-credit{ text-align:left; }
   .foot-in{ flex-direction:column; align-items:flex-start; }
 }
 
@@ -1094,6 +1106,9 @@ footer{ background:#1A2118; color:var(--ivory); }
   <div class="wrap foot-sub">
     <span>Uma criação de Mafalda Almeida e Alessandra Losacco</span>
     <span><span class="todo">Termos · Privacidade · Contacto</span></span>
+  </div>
+  <div class="wrap foot-credit">
+    Desenvolvido por <a href="https://www.instagram.com/ogrupocado/" target="_blank" rel="noopener noreferrer">Grupo CADO</a>
   </div>
 </footer>
 
